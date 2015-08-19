@@ -1,0 +1,4 @@
+greenlet==0.4.7
+motor==0.4.1
+pymongo==2.8
+tornado==4.2.1
