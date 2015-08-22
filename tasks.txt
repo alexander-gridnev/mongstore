@@ -1,3 +1,4 @@
 + make a test enviroment - tornado, motor, mongodb. Add a requirements.txt
-- make ability to add/delete schemas, id - urlencoded name, make tests for getting schemas list, deleting objs
++ make ability to add/delete schemas, id - urlencoded name, make tests for getting schemas list, deleting objs
 - add handlers on the fly at the start and on adding new schema. /schema_name, /schema_name/_schema, /schema_name/id, adding a collection
+- refactor a test, make helpers for API calls

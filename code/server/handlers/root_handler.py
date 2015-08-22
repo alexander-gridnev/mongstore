@@ -1,15 +1,18 @@
 from tornado.gen import coroutine
-from tornado.web import RequestHandler
+from handlers.base_handler import BaseHandler
 
 
-class RootHandler(RequestHandler):
+class RootHandler(BaseHandler):
+
     @coroutine
     def get(self):
-        db = self.settings['db']
         state = dict(state='connected')
-        result = yield db.status.update(state, state, upsert=True)
-        print(result)
+
+        with self.catch_db_errors:
+            result = yield self.db.status.update(state, state, upsert=True)
+
         if result['err'] is None and result['ok'] == 1:
             self.write(state)
         else:
-            self.write(dict(state='bad_connect'))
+            # TODO: add test for some internal errors in db
+            self.write(dict(state='errors', reponse=result))
