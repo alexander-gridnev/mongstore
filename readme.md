@@ -1,3 +1,7 @@
+# Mongstore
+
+HTTP wrapper for mongodb. Extends regular http API with per-objects/per-collection permissions and JSON schemas.
+
 Features list:
 
 1. REST API for collections
